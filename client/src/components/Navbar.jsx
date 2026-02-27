@@ -1,6 +1,6 @@
 import { useContext, useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingCart, User, LogOut, ChevronDown } from 'lucide-react';
+import { ShoppingCart, User, LogOut, ChevronDown, Utensils } from 'lucide-react';
 import AuthContext from '../context/AuthContext';
 import CartContext from '../context/CartContext';
 import './Navbar.css';
@@ -33,10 +33,11 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="navbar">
+        <nav className="navbar glass">
             <div className="navbar-container">
                 <Link to="/" className="layout-logo">
-                    🍽️ FoodDelivery
+                    <Utensils className="logo-icon" size={24} />
+                    <span className="logo-text">Food<span className="logo-highlight">Delivery</span></span>
                 </Link>
 
                 <div className="nav-links">

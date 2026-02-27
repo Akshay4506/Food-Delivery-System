@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import './Auth.css';
 
@@ -23,23 +23,33 @@ const Signup = () => {
 
     return (
         <div className="auth-container">
-            <div className="auth-card">
-                <h2>Signup</h2>
+            <div className="auth-card glass-panel">
+                <div className="auth-header">
+                    <h2>Create Account</h2>
+                    <p>Join us to order your favorite meals</p>
+                </div>
+
                 {error && <div className="error-msg">{error}</div>}
-                <form onSubmit={handleSubmit}>
+
+                <form onSubmit={handleSubmit} className="auth-form">
                     <div className="form-group">
-                        <label>Username</label>
-                        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" value={username} onChange={(e) => setUsername(e.target.value)} required />
                     </div>
                     <div className="form-group">
-                        <label>Email</label>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        <label>Email Address</label>
+                        <input type="email" placeholder="name@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        <input type="password" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} required />
                     </div>
-                    <button type="submit" className="btn-primary">Signup</button>
+
+                    <button type="submit" className="btn-primary">Sign Up</button>
+
+                    <p className="auth-switch">
+                        Already have an account? <Link to="/login" className="auth-link">Log in</Link>
+                    </p>
                 </form>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { MapPin, Search } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
@@ -36,40 +37,59 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <div className="home-header">
-                <h1>Restaurants</h1>
-                <div className="location-filter">
-                    <label>Location: </label>
-                    <select
-                        value={selectedLocation}
-                        onChange={(e) => setSelectedLocation(e.target.value)}
-                        className="location-select"
-                    >
-                        {locations.map(loc => (
-                            <option key={loc} value={loc}>{loc}</option>
-                        ))}
-                    </select>
-                </div>
-            </div>
+            <section className="hero-section">
+                <div className="hero-content">
+                    <h1 className="hero-title">
+                        Craving something <span className="text-gradient">delicious?</span>
+                    </h1>
+                    <p className="hero-subtitle">Discover the best food & drinks in your city</p>
 
-            <div className="restaurant-grid">
-                {filteredRestaurants.length > 0 ? (
-                    filteredRestaurants.map((restaurant) => (
-                        <Link to={`/restaurant/${restaurant._id}`} key={restaurant._id} className="restaurant-card">
-                            <img src={restaurant.image} alt={restaurant.name} className="restaurant-img" loading="lazy" />
-                            <div className="restaurant-info">
-                                <h3>{restaurant.name}</h3>
-                                <p className="cuisine">{restaurant.cuisine} • {restaurant.location}</p>
-                                <div className="rating">
-                                    {restaurant.rating > 0 ? `⭐ ${restaurant.rating.toFixed(1)}` : 'No ratings yet'}
+                    <div className="search-bar glass">
+                        <div className="location-filter">
+                            <MapPin size={20} className="filter-icon" />
+                            <select
+                                value={selectedLocation}
+                                onChange={(e) => setSelectedLocation(e.target.value)}
+                                className="location-select"
+                            >
+                                {locations.map(loc => (
+                                    <option key={loc} value={loc}>{loc}</option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="restaurants-section">
+                <div className="section-header">
+                    <h2>Top Restaurants</h2>
+                    <p>Explore curated spots picked just for you.</p>
+                </div>
+
+                <div className="restaurant-grid">
+                    {filteredRestaurants.length > 0 ? (
+                        filteredRestaurants.map((restaurant) => (
+                            <Link to={`/restaurant/${restaurant._id}`} key={restaurant._id} className="restaurant-card">
+                                <div className="img-wrapper">
+                                    <img src={restaurant.image} alt={restaurant.name} className="restaurant-img" loading="lazy" />
                                 </div>
-                            </div>
-                        </Link>
-                    ))
-                ) : (
-                    <p>No restaurants found in this location.</p>
-                )}
-            </div>
+                                <div className="restaurant-info">
+                                    <h3 className="restaurant-name">{restaurant.name}</h3>
+                                    <p className="cuisine">{restaurant.cuisine} • {restaurant.location}</p>
+                                    <div className="rating">
+                                        {restaurant.rating > 0 ? `★ ${restaurant.rating.toFixed(1)}` : 'New'}
+                                    </div>
+                                </div>
+                            </Link>
+                        ))
+                    ) : (
+                        <div className="no-results">
+                            <p>No restaurants found for this location.</p>
+                        </div>
+                    )}
+                </div>
+            </section>
         </div>
     );
 };

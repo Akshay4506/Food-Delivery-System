@@ -1,41 +1,187 @@
 .reviews-component {
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.no-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 1rem;
+    background: #f9fafa;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    color: var(--text-light);
+}
+
+.icon-empty {
+    opacity: 0.4;
 }
 
 .review-card {
-    background: #f9f9f9;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+    background: var(--surface);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.review-card:hover {
+    border-color: rgba(0, 0, 0, 0.08);
 }
 
 .review-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.reviewer {
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 1.05rem;
+}
+
+.rating-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: var(--text-main);
+    color: var(--surface);
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.review-text {
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 .review-form {
-    background: white;
-    padding: 1.5rem;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    margin-top: 2rem;
+    background: var(--surface);
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.review-form h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.rating-selector {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.star-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #e5e7eb;
+    transition: var(--transition);
+    padding: 0;
+}
+
+.star-btn:hover,
+.star-btn:hover~.star-btn,
+.star-btn.active {
+    color: #fbbf24;
 }
 
 .review-form textarea {
     width: 100%;
-    height: 100px;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
+    height: 120px;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 0.95rem;
+    resize: vertical;
+    transition: var(--transition);
+    background: #f9fafa;
+    color: var(--text-main);
 }
 
-.review-form button {
-    margin-top: 1rem;
-    background: #ff6b6b;
-    color: white;
+.review-form textarea:focus {
+    outline: none;
+    border-color: var(--text-main);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+    background: var(--surface);
+}
+
+.btn-submit {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--text-main);
+    color: var(--surface);
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.95rem;
     cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.login-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2.5rem;
+    background: #f9fafa;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    color: var(--text-light);
+}
+
+.login-prompt a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-prompt a:hover {
+    text-decoration: underline;
 }

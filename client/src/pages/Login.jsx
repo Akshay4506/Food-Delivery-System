@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import './Auth.css';
 
@@ -22,19 +22,29 @@ const Login = () => {
 
     return (
         <div className="auth-container">
-            <div className="auth-card">
-                <h2>Login</h2>
+            <div className="auth-card glass-panel">
+                <div className="auth-header">
+                    <h2>Welcome Back</h2>
+                    <p>Enter your details to access your account</p>
+                </div>
+
                 {error && <div className="error-msg">{error}</div>}
-                <form onSubmit={handleSubmit}>
+
+                <form onSubmit={handleSubmit} className="auth-form">
                     <div className="form-group">
-                        <label>Email</label>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        <label>Email Address</label>
+                        <input type="email" placeholder="name@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        <input type="password" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} required />
                     </div>
-                    <button type="submit" className="btn-primary">Login</button>
+
+                    <button type="submit" className="btn-primary">Sign In</button>
+
+                    <p className="auth-switch">
+                        Don't have an account? <Link to="/signup" className="auth-link">Sign up</Link>
+                    </p>
                 </form>
             </div>
         </div>
