@@ -1,0 +1,104 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--background) 0%, #fff 100%);
+}
+
+.auth-card {
+    background: var(--surface);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid var(--border);
+}
+
+.auth-card h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--secondary);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: #fcfcfc;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 82, 0, 0.1);
+    background: white;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: var(--transition);
+    margin-top: 1rem;
+    box-shadow: 0 4px 10px rgba(255, 82, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 82, 0, 0.4);
+}
+
+.error-msg {
+    color: #e74c3c;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    background: rgba(231, 76, 60, 0.1);
+    padding: 0.8rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.auth-card p {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.auth-card a {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.auth-card a:hover {
+    text-decoration: underline;
+}
